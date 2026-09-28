@@ -1,7 +1,7 @@
 # BUILD-STATUS
 
-**Last updated:** 2026-08-10 (Route B Stage 0b — reach)
-**Current phase:** Phase 0 — in progress
+**Last updated:** 2026-08-12 (Phase 1 — collection started, partial)
+**Current phase:** Phase 1 — in progress; Phase 0 half-finished, not blocking
 
 > Update this at the end of every working session. Two minutes. It's what lets you restart cold after three weeks away, and it's the first thing Claude should read at the start of a session.
 
@@ -38,6 +38,68 @@ Checked four ways that share no code — set intersection, a merge-walk over sor
 **Two findings from those 14 that travel to the other cities.** First, **the F0 resolver was scoped to Copenhagen.** White Guide's address strings on these rows are truncated to street and number with no locality, so F1 could not be applied to the guide's own text and the rows fell through to Places, which was looking in the wrong place. **This will recur in London and Barcelona and will be harder to spot there**, because a wrong match in Greater London looks plausible. Second, **White Guide Denmark includes the Faroe Islands** — 5 of the 199 — which bears on `D-037`, where completeness was asserted against a guide whose territory had never been established.
 
 **Only one of the 3 `not_trading` rows carries an F1 verdict.** Kiin Kiin Tok Tok's address was confirmed (`D-041`); VesterVenner and Toto's never were, so no boundary verdict is possible on either and they are counted in no F1 line. All three carry `D-041`'s dating caveat — closure observed four days after frame date, no published closure date, so the frame-date verdict is an inference and is not backfilled.
+
+---
+
+## Phase 1 — started 2026-08-12, partial
+
+**Collection has begun.** The operator supplied 39 venue rows carrying 30 URLs, opened personally in
+one batch at ~11:30 CEST on 2026-08-12. Claude fetched **8 of those 30** and stopped deliberately.
+
+| | Count | Denominator |
+|---|---|---|
+| Pages fetched | **8** | of 30 URLs supplied, of 39 venue rows |
+| F2 `full` | 6 | of 8 fetched |
+| F2 `price_only` | 2 | of 8 fetched |
+| Dish rows captured | 110 | — |
+| Page served English only | 7 | of 8 fetched |
+| Original-language menu reachable at the URL supplied | 2 | of 8 fetched |
+
+**None of these are a sample.** `D-056` (confirmed by the operator 2026-08-12) holds: nothing
+published from the Phase 1 forty carries a denominator.
+
+**Why it stopped at 8.** The Enigma trilingual PDF showed machine extraction silently corrupting
+original-language text — ÀNEC→ÅNEC, CIRERA→CIIRERA, El→EI. That is `D-020`'s unrecoverable field,
+damaged invisibly, in a way review cannot catch because nobody on this project reads Catalan or
+Danish (`D-022`). `D-059` proposed in response: original-language names are human-transcribed;
+machine extraction may carry prices, structure, format, service and F2 only.
+
+**Q7 — first evidence, unverified assumption since 2026-07-28.** 7 of 8 fetched pages served English
+only; Enigma alone published multiple languages (es/en/ca in one artefact). But 5 of the 8 were
+Copenhagen and **no Danish page was seen at all** — several URLs carried `-UK` or `English` in the
+path, so Danish versions likely exist and were not the URLs collected. The assumption survives this
+look and is **not** confirmed by it.
+
+**Phase 1 capture template built** (`phase1-menu-capture-template.xlsx`) — Menus sheet, Dishes sheet,
+Legend. Dropdowns on the controlled-vocabulary columns; no formulas, deliberately. Not yet filled.
+
+**Findings that travel beyond Phase 1:**
+
+- **akmē carries 1500 and 1300 DKK live on one page** — confirmed, not remembered. Two `Menu`
+  blocks, set menu and tasting menu. No mechanical rule resolves this; flagged, not chosen.
+- **The Ledbury's three prices are NOT that case** — £220 / £270 / £295 are labelled lunch-6,
+  lunch-8 and dinner. Structure, not conflict. A rule that confuses the two would be wrong on both.
+- **The Ledbury rendered every content block twice** in extraction (tabbed panels). Naive count 14,
+  true count 7. Correct code over doubled input gives a wrong answer that looks right.
+- **Page freshness ≠ menu freshness.** Geranium's menu page still carried a COVID-19 notice and a
+  "closed 5–29 July" message, live on 12 August.
+- **A venue's `/en/` path may be a translation, not the menu.** Prodigi's supplied URL is the
+  venue's own English rendering; the Catalan original is elsewhere on the site, so
+  `dish_name_original` cannot be filled from that URL at all.
+- **Anarki's à la carte says "see the blackboard"** — an F2 ceiling no method crosses.
+- **Anarki's PDF lost a dish name** in extraction ("& vanilla ice cream 115"). Logged as damaged,
+  not guessed.
+
+**Open on the source file itself:** Kadeau, Alchemist, Alouette, Humble Chicken, Disfrutar and Aleia
+carry no URL and no F2 verdict — "not available" from a search is not F2 `none` from a human looking.
+Noma's URL reads `noma.co.com`, which is expected to be wrong (`noma.dk`); unverified. **Connection
+and Brasserie Barner are asserted closed with no source, and both are in the 132-venue frame.**
+
+**Composition drift, recorded:** the Copenhagen twenty proposed by Claude were selected from the
+frame file by documented non-random stratified fill (`D-058`). The returned file substituted
+**Paula** — which is **not in the 132-venue frame** — for **a|o|c** and **Studio**, which both are.
+
+---
 
 **Noma is not in MICHELIN Nordic 2026.** Operator-verified 2026-08-01. It enters the frame on White Guide alone, so A1's enumeration is confirmed correct and the `D-032` tier reconciliation was not masking a substitution. **Still open:** Noma's F4 status needs an explicit decision when F4 runs, not before — the most prominent venue in the census city, holding one route of two.
 
@@ -106,7 +168,7 @@ Twelve venues, three cities, verdicts pre-registered. **Six agreements, one disa
 |---|---|---|---|
 | Design documentation | ✅ Complete v1 | This Project | docs 00–20 |
 | Twenty questions | ✅ Complete | `20-twenty-questions.md` | 9 of 20 need multi-year data; flagged in the file |
-| Database schema | 🟨 Patch pending | `schema.sql`, `schema-patch-D047.sql` | v1 + D-020. Parses clean. Not yet deployed. **`D-047` must be applied before first run** — `entity_aliases` cannot date a name as a fact, and `canonical_name` has no history |
+| Database schema | ✅ Ready to run | `schema.sql` | v1 + D-020 + **D-047**, folded in 2026-08-01 and parsed clean (69 statements). Not yet deployed. `schema-patch-D047.sql` is kept as the record of the change and is marked **do not run** |
 | Venue inclusion criteria | ✅ Complete v1 | `21-venue-inclusion-criteria.md` | Mechanical, hypothesis-blind. Calibration test in §11 not yet run |
 | Frame enumeration | 🟨 Partial | `cph-route-a-frame-union.xlsx`, `cph-route-a1-frame.xlsx`, `cph-route-a2-frame.xlsx` | **Copenhagen Route A frame = 132, artefact written 2026-08-01.** F1 only, 8 CHECK rows, all PASS. Route B not started. London and Barcelona not started |
 | Venue list (cohort) | ⬜ Not started | — | 20/city, drawn by seed `20260728` once the frame exists |
@@ -232,3 +294,5 @@ Keep this short — one line each. It's a trail, not a diary.
 | 2026-08-10 | Berlingske search endpoint supplied by operator after a wrong guess at `/soeg`. Search is real, dated and states 4,289 results for `restaurant` — but `?page=N` is silently ignored and a browser-interaction test to measure recession rate **failed**. Reach still unproven. Two different result sets returned from one URL in one session; cause unknown |
 | 2026-08-10 | **Route B Stage 0b — archive reach tested, no data collected, frame unchanged at 132.** `D-051` applied to Scandinavian Standard and MigogKbh. **Scandinavian Standard PASSES on sitemap** — 1,696 posts across 2 files, spans 2014–2026, encloses the window; first Route B title in the project to demonstrate reach. Its `lastmod` proven unusable as a publication date; real dates live in `article:published_time`. Section index fails (real pagination, no served articles). Search closed by robots, untested. 133 of 1,696 slugs over 90 chars, zero historically. **MigogKbh sitemap FAILS — 113 children, newest entry 2026-05-19, ~12 weeks stale**; its section index and search untested. Reach now 1 of 5. `D-053`–`D-055` logged. Two Claude errors logged in Corrections |
 | 2026-08-10 | Phase 1 target confirmed at **40 venues** and declared method-development, not cohort (`D-056`). `11-roadmap.md` Phase 0 and Phase 1 venue lines corrected — they described the hand-selection method `D-023` replaced. Phase 1 unblocked; issue #1 due week 3 |
+| 2026-08-12 | **Phase 1 collection started — 8 of 30 URLs fetched, stopped deliberately.** 6 `full` / 2 `price_only`, 110 dish rows, 7 of 8 pages English-only (denominator: 8 fetched, of 30 URLs, of 39 rows). Enigma trilingual PDF showed **machine extraction corrupting original-language text** (ÀNEC→ÅNEC, CIRERA→CIIRERA, El→EI) — `D-059` proposed, original-language names must be human-transcribed. akmē's 1500/1300 DKK conflict confirmed live. The Ledbury duplicated every block in extraction (14 vs true 7). Prodigi's supplied URL is a translation path. `D-056` confirmed by operator; `D-057`–`D-060` logged. One Claude claim withdrawn: batch timestamps do **not** disqualify rows from the gold set |
+| 2026-08-12 | Phase 1 capture template built (Menus / Dishes / Legend, dropdowns, no formulas). Copenhagen twenty selected from the frame file by documented non-random stratified fill; London and Barcelona tens assembled by web search against registered guides and are **not enumerated** (`D-058`) |
