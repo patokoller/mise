@@ -49,6 +49,11 @@ Note that revenue is third and distant. The newsletter is not the business; it's
 
 ## 3. Issue structure
 
+**Framing (`D-065`, 2026-09-28).** Each issue is about trends, not about a city. It opens with a one-line
+standfirst stating the bet — that Copenhagen, Barcelona and London show direction early — as a bet. Each item
+leads with the pattern and says which of the three cities it appears in; a claim about anywhere else needs a
+dated, linked source from there. Origin claims stay under `D-026`.
+
 Roughly 800–1,200 words. Consistency of format matters more than variety.
 
 | Section | Content |

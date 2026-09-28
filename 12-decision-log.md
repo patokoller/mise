@@ -1078,6 +1078,29 @@ scores the two authors separately.
 
 ---
 
+### D-065 · 2026-09-28 · Issues are about trends; the three cities are the evidence · **Accepted** — operator direction
+
+**Decision:** The Next Table writes about trends in serious cooking, not about Copenhagen, Barcelona or London
+as places. The three cities are chosen because the project's bet is that they show direction early; each
+issue leads with the pattern and uses the cities as its evidence, noting which of the three it appears in.
+
+**Guardrails, because "global" is the word most likely to break the standards in `09` §2:**
+- The bet that these cities lead is a hypothesis, stated as one in every issue's standfirst, never as fact.
+- A claim about the world beyond the three cities needs evidence from beyond them — a dated, linked source
+  (Tokyo and Seoul are read, `00` §4). Without it the claim is "in the cities we watch", full stop.
+- Whether a pattern *started* in these cities is an origin claim, and `D-026` still governs it.
+- No new collection cities follow from this. It changes how issues are written, not what is collected.
+
+**Reasoning:** matches `00` §3 — the paying readers ask "is it early or late?", a question about direction,
+not about one city — and `00` §4's segment, "the places that set direction". City-by-city reporting would
+make the newsletter a local guide, which `00` rules out.
+
+**Reverses if:** the diffusion evidence (Q8, Q9) over the first year shows the three cities do not move
+ahead of anywhere else we can see — then the standfirst's bet is withdrawn in print and issues report the
+cities for what they are.
+
+---
+
 ## Template for new entries
 
 ```
@@ -1178,3 +1201,4 @@ Source additions, taxonomy versions, prompt changes, schema migrations. Anything
 | 2026-08-10 | doc | `D-056` — Phase 1 target confirmed at **40 venues**, declared method-development rather than cohort. `11-roadmap.md` Phase 0 "list 60 candidate venues" superseded; Phase 1 line annotated | none — no data collected yet. Removes a doc that described a selection method `D-023` had already replaced |
 | 2026-09-28 | doc | Repository created and August recovery committed. `D-056` addendum and `D-057`–`D-060` (written 2026-08-12, never uploaded) restored; D-047 wording from 2026-08-01 restored; `D-061` logged | none on data. `schema.sql` was already correct; only the docs describing it were stale |
 | 2026-09-28 | doc | `D-057`, `D-059`, `D-060` accepted under `D-062`; `D-062`–`D-064` logged; `07` §2 and `menu_item.schema.json` v1.1.0 (extractor never writes `name_original`; `menu_date_stated` is free text); `16` gains Phase 1 checks; `21` §12.1 items 9–11 | Phase 1 dish rows carry `name_original` empty until transcribed. No existing data changed |
+| 2026-09-28 | doc | `D-065` — issues are trend-led, cities are evidence; `09` §3 gains the framing rule | none on data |
