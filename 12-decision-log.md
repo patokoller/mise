@@ -1101,6 +1101,47 @@ cities for what they are.
 
 ---
 
+### D-066 · 2026-09-28 · Issue #1 is a launch issue: five trends, charts, and a deep-dive calendar · **Accepted** — operator direction, details by Claude under `D-062`
+
+**Decision:** issue #1 sets out five trends, the thesis behind each, the evidence (qualitative and, where it
+exists honestly, a chart), and the prediction that will settle it. Each trend gets a deep-dive issue on the
+schedule in `22-deep-dive-calendar.md`. Issue #1 is longer than `09` §3's 800–1,200 words and uses its own
+structure; the weekly structure resumes from issue #2.
+
+**Three kinds of evidence, never mixed:** (1) official national statistics, sourced and labelled as context
+for the cities, not a measurement of them; (2) counts from a rule-built frame (Copenhagen's 132), always with
+the denominator in the chart; (3) observations of named venues from the Phase 1 forty — no counts, no shares,
+and charted only as a named grid, never as individual prices side by side (`19` §7).
+
+**City colours fixed (`19` §3), colourblind-safe:** Copenhagen `#0072B2` solid, Barcelona `#D55E00` dashed,
+London `#009E73` dotted. National series take their city's colour and are labelled as national.
+
+**Honest limit, stated to the operator:** the operator asked for predictions "for the rest of 2026". Only P3
+settles in 2026; the others settle from 31 March 2027. Predictions are never edited after being written, so
+the issue carries their dates as they stand.
+
+**Reverses if:** issue #1's length or format tests badly with readers (Substack open and read-through rates,
+once there are any), in which case deep dives adopt the weekly structure with a longer "What moved".
+
+---
+
+### D-067 · 2026-09-28 · F2 and F4 run on Copenhagen's Route A frame now, not after Route B · **Accepted** — by Claude under `D-062`
+
+**Decision:** F4 (trading at frame date) and F2 (menu publication mode, with price and menu language) run over
+the 132 Route A venues in October–November 2026. Route B additions, if Route B ever becomes runnable, go
+through the identical pass with the identical spec, and the frame file records which pass each row came from.
+
+**Alternatives:** keep waiting for Route B, as planned on 2026-08-01, so that the frame is filtered once.
+
+**Reasoning:** the "filter once" rule protected consistency, not timing. Route B has been blocked since
+2026-08-10 (`D-055`) with no date to unblock; waiting would block the first two deep dives indefinitely. A
+written spec applied twice is consistent in the way that matters. The cost: F4's closure evidence for the 132
+will be gathered two to four months after frame date, so more verdicts are inferences under `D-041`.
+
+**Reverses if:** Route B becomes runnable before the F4 pass starts — then the whole frame is filtered in one pass as originally planned.
+
+---
+
 ## Template for new entries
 
 ```
@@ -1202,3 +1243,4 @@ Source additions, taxonomy versions, prompt changes, schema migrations. Anything
 | 2026-09-28 | doc | Repository created and August recovery committed. `D-056` addendum and `D-057`–`D-060` (written 2026-08-12, never uploaded) restored; D-047 wording from 2026-08-01 restored; `D-061` logged | none on data. `schema.sql` was already correct; only the docs describing it were stale |
 | 2026-09-28 | doc | `D-057`, `D-059`, `D-060` accepted under `D-062`; `D-062`–`D-064` logged; `07` §2 and `menu_item.schema.json` v1.1.0 (extractor never writes `name_original`; `menu_date_stated` is free text); `16` gains Phase 1 checks; `21` §12.1 items 9–11 | Phase 1 dish rows carry `name_original` empty until transcribed. No existing data changed |
 | 2026-09-28 | doc | `D-065` — issues are trend-led, cities are evidence; `09` §3 gains the framing rule | none on data |
+| 2026-09-28 | doc | `D-066` launch-issue format, evidence tiers and fixed city colours; `D-067` F2/F4 on Route A before Route B; new `22-deep-dive-calendar.md`; `19` §3 colours filled in | none on data yet; F2/F4 pass scheduled Oct–Nov 2026 |

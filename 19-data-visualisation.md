@@ -1,7 +1,7 @@
 # 19 — Data Visualisation
 
 **Status:** Draft v1
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-09-28 (city colours fixed)
 
 ---
 
@@ -60,7 +60,7 @@ Consistency matters more than beauty. Set these once, never fiddle.
 
 | Element | Rule |
 |---|---|
-| Colour | One colour per city, fixed forever. Copenhagen, Barcelona, London keep their colours across every chart in every issue |
+| Colour | One colour per city, fixed forever (`D-066`, colourblind-safe): **Copenhagen `#0072B2` solid, Barcelona `#D55E00` dashed, London `#009E73` dotted.** National series take their city's colour and are labelled as national |
 | Series distinction | Colour *plus* a line style (solid, dashed, dotted). Charts get screenshotted in greyscale and read by colourblind readers |
 | Y-axis | Always starts at zero for penetration and share. Truncating a percentage axis exaggerates change and is the oldest trick in the book |
 | Axis label | States the denominator: "% of venues observed that quarter" |
