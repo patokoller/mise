@@ -117,3 +117,23 @@ something smoked on at least 9. (September 2025: truffle 9, smoked 6. 2026-09-28
 heat (chilli, kosho, kimchi, 'nduja, jalapeño or similar, per the frozen vocabulary) on the same dish as shellfish.
 (2026-09-28: none of the Barcelona menus we could read; 6 kitchens in Copenhagen and 1 in London.)
 **Confidence:** 0.5. **Influenced by:** directly — the 2026 capture. It is a test of the leading-city bet (`D-065`).
+
+---
+
+## Added 2026-09-28, evening — industry-wide predictions (P9–P13), the ones issue #1 prints
+
+**Author:** Claude, at the operator's request (`D-064`). **Settled by public numbers only** — no hand-picked
+restaurants involved (`D-069`). Source files as retrieved on 2026-09-28 are in `data/external/`.
+
+| # | Claim | Settles on | Confidence | Value when written |
+|---|---|---|---|---|
+| P9 | In the March 2027 CPI, the 12-month rate for restaurants and cafés (COICOP 11.1.1) exceeds the all-items rate in **both** the UK (ONS D7JA vs D7G7) and Spain (INE IPC291378 vs IPC290750) | April 2027 releases | 0.7 | Aug 2026: UK 4.6 vs 3.1; Spain 4.4 vs 4.3 |
+| P10 | World Bank Pink Sheet monthly cocoa price for 2027M03 is **below $6.45/kg** (≥40% under the 2025M01 peak of $10.75) | Pink Sheet, early April 2027 | 0.55 | 2026M08: $5.95; 2026M03 low $3.24 |
+| P11 | World Bank Pink Sheet monthly arabica coffee price for 2027M03 is **above $6.00/kg** | Pink Sheet, early April 2027 | 0.7 | 2026M08: $7.97; 2020 average $3.32 |
+| P12 | Japan's green tea export value for April 2026–March 2027 (Ministry of Finance trade statistics) **exceeds ¥84.7bn**, the previous year's figure as reported by Jiji Press | MoF data, ~May 2027 | 0.65 | FY to Mar 2026: ¥84.7bn, 13,125 t |
+| P13 | Spices Board India monthly average domestic price for small cardamom (all-India auction), February 2027, **above Rs 2,000/kg** | Spices Board monthly file | 0.65 | Feb 2026: Rs 2,458.31; 26 Sep 2026 auctions ~Rs 3,080–3,140 |
+
+If a source revises a figure before the settle date, the value published on the settle date is used and the
+revision noted. If a series is discontinued, the prediction is void, not re-pointed.
+
+P1–P8 above remain open and are resolved on their own dates; they are not printed in issue #1 (`D-069`).

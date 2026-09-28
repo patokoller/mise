@@ -1,6 +1,6 @@
 # 22 — Deep-dive calendar
 
-**Status:** v2, 2026-09-28 (`D-066`, re-ordered for ingredient trends under `D-068`)
+**Status:** v3, 2026-09-28 (`D-066`; re-cut for industry-wide ingredient economics under `D-069`)
 **Last reviewed:** 2026-09-28
 
 Issue #1 of The Next Table names five trends, each with a prediction in `predictions/phase1-ledger.md`.
@@ -8,13 +8,16 @@ Each trend gets its own deep-dive issue, in the order its evidence becomes avail
 (`09` §3) continue in between. A deep dive is published only when the work in its "needs first" column is
 done and checked; if the work slips, the issue slips — it is never written ahead of its data.
 
-| Month | Deep dive | Prediction | Needs first | Evidence with a real denominator |
+| Month | Deep dive | Prediction | Needs first | Our own evidence to showcase, if it clears `08` §3 |
 |---|---|---|---|---|
-| Nov 2026 | Smoke in, truffle out | P7 | F2 pass over Copenhagen's 132 (menus now), plus Internet Archive captures of the same menus from autumn 2025 (`D-068`) | Year-apart ingredient presence across the 132, of those with menus in both years |
-| Dec 2026 | The forecasters are describing last year's menus | P6 | Archive captures from autumn 2023 and 2024 for the same restaurants | First year each forecast ingredient appears, across the 132 |
-| Jan 2027 | Heat moves onto shellfish | P8 | Re-collection of the Phase 1 venues, 15–31 Dec 2026; Barcelona read closely | Panel counts (P3 settles here too) |
-| Feb 2027 | At the top you buy a price, not a menu | P2 | F2 states for all 132, from the November pass | Publication mode by guide tier, of 132 |
-| Apr 2027 | Eating out keeps getting dearer | P1 | Re-collection after 2027-03-31; ONS / Danmarks Statistik / INE March figures | Official series plus P1's own test |
+| Nov 2026 | Chocolate after the shock | P10 | Pink Sheet and ICCO updates; F2 pass over Copenhagen's 132 plus autumn-2025 archive copies | Chocolate on menus, year apart, across the 132 (panel showed 12 → 8 of 17) |
+| Dec 2026 | Viral ingredients: matcha, pistachio, ube | P12 | MoF export data; USDA/industry pistachio figures | Forecast-vs-menu comparison (held chart) extended to the 132 |
+| Jan 2027 | The spice rack: cardamom, saffron, pepper, vanilla | P13 | Next Spices Board monthly file; Guatemala crop reports | Spice mentions across the 132, year apart |
+| Feb 2027 | Coffee and the end of the meal | P11 | Pink Sheet; ICO reports; café price reporting | Coffee / petits-fours pricing in the Phase 1 re-collection (15–31 Dec) |
+| Apr 2027 | What eating out costs now | P9, P1 | ONS / Danmarks Statistik / INE March figures; re-collection after 31 March | P1 on the Phase 1 venues |
+
+Earlier predictions P2–P8 are resolved on their own dates in weekly issues; smoke/truffle (P7) and heat on shellfish (P8)
+become deep-dive material if the frame comparison supports them.
 
 P4 (menu language) and P5 (closed restaurants on the guide list) are method predictions: they are resolved in a
 weekly issue when their data exists (the F2 and F4 passes), not given a deep dive.

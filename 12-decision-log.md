@@ -1170,6 +1170,31 @@ truffle or smoke — then panel charts stop and only frame counts are charted.
 
 ---
 
+### D-069 · 2026-09-28 · Issue #1 is industry-wide; our own menu evidence waits until it is strong · **Accepted** — operator direction
+
+**Decision:** issue #1 argues its trends from public economic data — official price series (ONS, Danmarks
+Statistik, INE, World Bank, IMF, European Commission, Spices Board India) — and from named, linked industry
+reporting. It prints no counts from the restaurants we track. Its predictions (P9–P13) are settled by public
+numbers anyone can look up. Evidence from our own menu collection (the 17-kitchen panel of `D-068`, the Phase 1
+forty, the Copenhagen frame) is held and shown in deep dives once it clears `08` §3; the panel charts are kept in
+`charts/held-for-later/`.
+
+**Why:** the operator asked for industry-wide trends, ingredient economics (price shocks, demand-made
+shortages, spices) and exploratory research, with the project's own evidence showcased later. It is also the
+more honest ordering: the panel counts were below the project's own signal threshold.
+
+**Guardrails kept:** every figure from a source actually opened and linked; causation from price to menu change is
+never asserted, only reported where someone said it; US menu-penetration figures without a base are called hints.
+
+**Scope note:** ingredient markets are context for the restaurant question, not a new collection domain. The
+commodity series are a curated file set in `data/external/`, refreshed by hand when an issue needs them — no
+pipeline (`00` §4 depth-beats-breadth).
+
+**Reverses if:** readers or the operator find the industry framing indistinguishable from existing trade
+coverage — then issues lead with our own menu evidence as soon as the frame comparison exists.
+
+---
+
 ## Template for new entries
 
 ```
@@ -1273,3 +1298,4 @@ Source additions, taxonomy versions, prompt changes, schema migrations. Anything
 | 2026-09-28 | doc | `D-065` — issues are trend-led, cities are evidence; `09` §3 gains the framing rule | none on data |
 | 2026-09-28 | doc | `D-066` launch-issue format, evidence tiers and fixed city colours; `D-067` F2/F4 on Route A before Route B; new `22-deep-dive-calendar.md`; `19` §3 colours filled in | none on data yet; F2/F4 pass scheduled Oct–Nov 2026 |
 | 2026-09-28 | doc | `D-068` archive captures as a dated source, a named 17-kitchen panel, watch-list charts; P6–P8 added to the ledger; issue #1 charts 2–3 replaced with ingredient charts; `22` calendar re-ordered | new private data: 2025 archived menus for 26 venues. No existing rows changed |
+| 2026-09-28 | doc | `D-069` issue #1 industry-wide; P9–P13 added, settled by public data; commodity, price-shock and spice evidence files added to `data/external/`; panel charts moved to `charts/held-for-later/`; `22` v3 | none on collected data |

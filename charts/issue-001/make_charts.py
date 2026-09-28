@@ -10,14 +10,17 @@ House style (19-data-visualisation.md §3, colours fixed by D-066):
   London     / UK       #009E73  dotted
 """
 import csv
+import os
 from collections import Counter
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import matplotlib.ticker
 import openpyxl
 
 OUT = "charts/issue-001/"
+HELD = "charts/held-for-later/"  # panel charts kept for a future issue (D-069)
 CITY = {  # D-066: fixed forever
     "Copenhagen": ("#0072B2", "-"),
     "Barcelona": ("#D55E00", "--"),
@@ -117,7 +120,7 @@ def chart_forecasts():
     footnote(fig, f"Forecasters: {N_PUB} publishers of 2026 food-trend forecasts (Oct 2025 – Jun 2026), mostly US and UK; each counted once. "
                   "Ingredients named by at least 2.\n" + PANEL_NOTE + " Ingredients matched in code on menu text. The Next Table.")
     fig.tight_layout(rect=(0, 0.13, 1, 0.93))
-    fig.savefig(OUT + "chart2-forecasts-vs-kitchens.png", dpi=200)
+    fig.savefig(HELD + "panel-forecasts-vs-kitchens.png", dpi=200)
     plt.close(fig)
     return rows
 
@@ -147,12 +150,87 @@ def chart_movers():
                   f"({ING['denominators']['panel_dish_lines']['2025']} dish lines in 2025, {ING['denominators']['panel_dish_lines']['2026']} in 2026), "
                   "which favours falls. Watch list, not a trend. The Next Table.")
     fig.tight_layout(rect=(0, 0.16, 1, 0.93))
-    fig.savefig(OUT + "chart3-panel-movers.png", dpi=200)
+    fig.savefig(HELD + "panel-movers.png", dpi=200)
     plt.close(fig)
     return mv
 
 
+
+# ---------------------------------------------------------------- Chart 2: kitchen staples, indexed
+COM = "data/external/commodity_prices_2020-2026.csv"
+
+
+def load_series(pred):
+    rows = [r for r in csv.DictReader(open(COM, encoding="utf-8")) if pred(r) and r["value"] not in ("",)]
+    return {r["month"]: float(r["value"]) for r in rows}
+
+
+def chart_staples():
+    series = [
+        ("Cocoa (World Bank)", lambda r: r["commodity"] == "cocoa" and r["source"].startswith("World Bank"), "#E69F00", "-"),
+        ("Arabica coffee (World Bank)", lambda r: r["commodity"] == "coffee_arabica" and r["source"].startswith("World Bank"), "#56B4E9", "--"),
+        ("Extra virgin olive oil, Spain (EU Commission)", lambda r: r["series_name"].startswith("EC: Extra virgin olive oil (up to 0.8%), Spain average"), "#CC79A7", "-."),
+        ("Butter, EU average (EU Commission)", lambda r: r["commodity"] == "butter", "#333333", ":"),
+    ]
+    months = [f"{y}-{m:02d}" for y in range(2020, 2027) for m in range(1, 13) if f"{y}-{m:02d}" <= "2026-08"]
+    fig, ax = plt.subplots(figsize=(9, 4.6))
+    for name, pred, col, ls in series:
+        s = load_series(pred)
+        base = [s[m] for m in months if m.startswith("2020")]
+        assert len(base) == 12, (name, len(base))
+        b = sum(base) / 12
+        xs = [i for i, m in enumerate(months) if m in s]
+        ys = [100 * s[m] / b for m in months if m in s]
+        assert len(xs) == len(months), (name, "missing months")
+        ax.plot(xs, ys, color=col, linestyle=ls, linewidth=1.8, label=name)
+        dy = {"#E69F00": 6, "#56B4E9": -6}.get(col, 0)  # cocoa and coffee end close together
+        ax.annotate(f"{ys[-1]:.0f}", (xs[-1], ys[-1]), xytext=(4, dy), textcoords="offset points", fontsize=8, color=col, va="center")
+    ax.axhline(100, color="#999999", linewidth=0.7)
+    ax.set_ylim(0, None)
+    ax.set_xticks([0, 12, 24, 36, 48, 60, 72, len(months) - 1], ["Jan 20", "Jan 21", "Jan 22", "Jan 23", "Jan 24", "Jan 25", "Jan 26", "Aug 26"], fontsize=8.5)
+    ax.set_ylabel("Price index, 2020 average = 100")
+    ax.legend(fontsize=8, frameon=False, loc="upper left")
+    fig.suptitle("Four staples of the pastry section and the café, monthly prices, Jan 2020 – Aug 2026",
+                 x=0.01, ha="left", fontsize=11, fontweight="bold")
+    footnote(fig, "Sources: World Bank Commodity Price Data (Pink Sheet), monthly, updated 2 Sept 2026 — cocoa and arabica in $/kg; "
+                  "European Commission agri-food data portal — weekly quotes (EUR/100 kg), averaged to months by us.\n"
+                  "Wholesale and world-market prices, not what a restaurant pays. Each series divided by its own 2020 average. Retrieved 2026-09-28. The Next Table.")
+    fig.tight_layout(rect=(0, 0.1, 1, 0.93))
+    fig.savefig(OUT + "chart2-staples-prices.png", dpi=200)
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------- Chart 3: spices, Indian wholesale markets
+def chart_spices():
+    panels = [("Small cardamom", "cardamom_small", "all-India auction average"), ("Black pepper", "black_pepper", "Kochi market"),
+              ("Saffron", "saffron", "Delhi wholesale market")]
+    months = [f"{y}-{m:02d}" for y in range(2020, 2027) for m in range(1, 13) if f"{y}-{m:02d}" <= "2026-02"]
+    fig, axes = plt.subplots(1, 3, figsize=(10, 3.9))
+    for ax, (title, com, where) in zip(axes, panels):
+        rows = [r for r in csv.DictReader(open(COM, encoding="utf-8")) if r["commodity"] == com and r["value"]]
+        s = {r["month"]: float(r["value"]) for r in rows if "SUSPECT" not in (r.get("note") or "").upper()}
+        ys = [s.get(m) for m in months]  # None = gap in the source; drawn as a break
+        ax.plot(range(len(months)), [float("nan") if y is None else y for y in ys], color="#8a5a00", linewidth=1.6)
+        last = max(m for m in s if m <= "2026-02")
+        ax.annotate(f"{s[last]:,.0f}", (months.index(last), s[last]), xytext=(4, 0), textcoords="offset points", fontsize=8, va="center")
+        ax.set_title(f"{title}\n({where}, Rs/kg)", fontsize=9.5, loc="left")
+        ax.set_ylim(0, None)
+        ax.set_xticks([0, 24, 48, len(months) - 1], ["Jan 20", "Jan 22", "Jan 24", "Feb 26"], fontsize=8)
+        ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:,.0f}"))
+    fig.suptitle("Spice prices in India's wholesale markets, monthly averages, Jan 2020 – Feb 2026",
+                 x=0.01, ha="left", fontsize=11, fontweight="bold")
+    footnote(fig, "Source: Spices Board India, monthly average domestic prices (latest file: Feb 2026); figures reported to it by trade bodies and auctioneers. "
+                  "Gaps are months the source leaves blank.\nSaffron: June 2021 omitted — printed as 675,000 between 65,000 and 75,000, almost certainly a typo in the source. "
+                  "Retrieved 2026-09-28. The Next Table.")
+    fig.tight_layout(rect=(0, 0.12, 1, 0.9))
+    fig.savefig(OUT + "chart3-spice-prices.png", dpi=200)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     chart_prices()
-    print("chart 2 rows:", chart_forecasts())
-    print("chart 3 rows:", chart_movers())
+    os.makedirs(HELD, exist_ok=True)
+    chart_forecasts(); chart_movers()   # held for a later issue
+    chart_staples()
+    chart_spices()
+    print("done")
