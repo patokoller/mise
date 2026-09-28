@@ -1,0 +1,11 @@
+# Never commit secrets (Firecrawl, Google, Anthropic keys, n8n credentials)
+.env
+.env.*
+*.key
+*.pem
+credentials*
+secrets*
+
+# Office lock/temp files
+~$*
+.DS_Store

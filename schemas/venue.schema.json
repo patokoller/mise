@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mise/venue.schema.json",
+  "title": "Venue extraction",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["venue_name_as_written", "extraction_confidence"],
+  "additionalProperties": false,
+  "properties": {
+    "venue_name_as_written": { "type": "string", "minLength": 1 },
+    "city_as_written": { "type": ["string", "null"] },
+    "address": { "type": ["string", "null"] },
+    "website": { "type": ["string", "null"], "format": "uri" },
+    "venue_type": {
+      "type": ["string", "null"],
+      "enum": ["restaurant", "bar", "hotel_restaurant", "popup", "bakery", "cafe", "food_hall_stall", "members_club", null]
+    },
+    "opened_date_stated": { "type": ["string", "null"], "format": "date" },
+    "opened_precision": {
+      "type": ["string", "null"],
+      "enum": ["exact", "month", "quarter", "year", "inferred", null]
+    },
+    "seats_stated": { "type": ["integer", "null"], "minimum": 1, "maximum": 2000 },
+    "service_model_stated": { "type": "array", "items": { "type": "string" } },
+    "price_band_stated": { "type": ["string", "null"] },
+    "opening_days_stated": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] }
+    },
+    "people_mentioned": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name_as_written", "confidence"],
+        "additionalProperties": false,
+        "properties": {
+          "name_as_written": { "type": "string", "minLength": 1 },
+          "role_stated": { "type": ["string", "null"] },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "group_mentioned": { "type": ["string", "null"] },
+    "sustainability_claims": { "type": "array", "items": { "type": "string" } },
+    "extraction_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "fields_uncertain": { "type": "array", "items": { "type": "string" } }
+  }
+}
