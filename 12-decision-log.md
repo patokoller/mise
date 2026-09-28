@@ -848,7 +848,7 @@ the Phase 1 forty are method-development venues, not the seeded cohort. No chang
 
 ---
 
-### D-057 · 2026-08-12 · How `observed_at` is set for a menu · **Proposed** — awaiting operator
+### D-057 · 2026-08-12 · How `observed_at` is set for a menu · **Accepted 2026-09-28** — by Claude under `D-062`
 
 **Decision:** `retrieved_at` is the clock reading at the moment the page was loaded, always present.
 `observed_at` takes the first available of:
@@ -888,6 +888,12 @@ re-save stamp is not an observation.
   Claude's recommendation: the latter, i.e. exclude CMS auto-stamps, on the same reasoning that
   excludes `Last-Modified`. This would leave Prodigi at `observed_at = retrieval`.
 
+**Resolved 2026-09-28 (Claude, under `D-062`):** (a) a version, season or validity string — "VERSIÓN
+VERANO 77", "Autumn Universe", Disfrutar's "Price valid until 07/08/2027" — goes in `menu_date_stated`
+and `observed_at` falls through to retrieval. (b) Category 2 means only a date the venue authored and
+displays to a reader; `og:updated_time` and every other CMS auto-stamp is excluded, with
+`Last-Modified`. Applied to the 2026-09-28 collection: every menu row fell through to `retrieval`.
+
 **Reverses if:** a material share of menus turn out to carry venue-authored page dates that
 demonstrably track menu changes, making category 2 worth the ambiguity it introduces.
 
@@ -917,7 +923,7 @@ case those tens are re-drawn from the real frames.
 
 ---
 
-### D-059 · 2026-08-12 · `dish_name_original` may not come from automated extraction · **Proposed** — awaiting operator
+### D-059 · 2026-08-12 · `dish_name_original` may not come from automated extraction · **Accepted 2026-09-28** — by Claude under `D-062`
 
 **Decision:** original-language dish and section names are **transcribed by a human from the
 artefact**. Machine extraction may populate prices, structure, section order, format and service
@@ -952,13 +958,19 @@ where an original-language menu actually exists.
 the counting-in-code failure mode in a new place — the code would have been correct and the input
 doubled.
 
+**Resolved 2026-09-28 (Claude, under `D-062`):** accepted as written, with one clarification. Machine
+text is not thrown away: it is kept in a separate column, `dish_text_as_extracted`, marked
+`machine_unverified`, and `dish_name_original` stays **empty** until a person transcribes it. Nothing
+in `dish_text_as_extracted` may be published as a venue's original wording. The collection records
+`original_language_url` per menu, which is the operator's worklist for the transcription pass.
+
 **Reverses if:** an extraction path is demonstrated to preserve diacritics exactly across a test set
 of Danish, Catalan and Spanish artefacts, with the test designed before the run and the failures
 counted.
 
 ---
 
-### D-060 · 2026-08-12 · Retrieval timestamps carry a precision field · **Proposed** — awaiting operator
+### D-060 · 2026-08-12 · Retrieval timestamps carry a precision field · **Accepted 2026-09-28** — by Claude under `D-062`
 
 **Decision:** `retrieved_at` is accompanied by `retrieved_at_precision`, one of `exact` or
 `batch_approximate`, and by `collected_by`. A batch window is recorded as what it is rather than
@@ -977,9 +989,12 @@ what, not on timestamp granularity. The eligibility constraint that *does* apply
 **Reverses if:** a use is found that requires per-page retrieval precision, in which case affected
 rows are re-collected rather than re-dated — `retrieved_at` is never backfilled.
 
+**Resolved 2026-09-28 (Claude, under `D-062`):** accepted. Values are `exact_minute` (a clock reading
+taken by the collector immediately after the fetch) and `batch_approximate`.
+
 ---
 
-### D-061 · 2026-09-28 · The project lives in a public GitHub repository, and GitHub is the master copy · **Accepted** (public: operator decision) / **Proposed** (master copy: awaiting operator)
+### D-061 · 2026-09-28 · The project lives in a public GitHub repository, and GitHub is the master copy · **Accepted** (public: operator decision; master copy: Claude under `D-062`, 2026-09-28)
 
 **Decision:** everything built or written for MISE is committed to `github.com/patokoller/mise`. The
 repository is **public** — the operator's decision, "for now". Proposed alongside it: GitHub is the
@@ -1004,6 +1019,62 @@ the repository (`10` §5). Guide-derived frame lists are in it; see BUILD-STATUS
 publishing guide-derived lists or collected data, or anything in the repo draws a publisher
 complaint; (master) the operator finds editing through the Project easier and accepts GitHub as a
 backup only — in which case the end-of-session sync still runs, in the other direction.
+
+---
+
+### D-062 · 2026-09-28 · The operator delegates build decisions to Claude · **Accepted** — operator instruction
+
+**Decision:** on 2026-09-28 the operator wrote: "I need you to do all of that work for me and take the
+decision for me for whatever it is needed. I give you that liberty." From that date Claude settles open
+design decisions itself and logs each one here as *by Claude under `D-062`*, so every delegated decision
+stays identifiable and can be reversed without archaeology.
+
+**What is not delegated, and why.** Publishing: Claude has no access to Substack, and each issue goes
+out under the operator's name, so the operator reads it and checks at least one claim against a real
+menu before sending. Human transcription under `D-059`: by definition a person does it. Those two are
+the project's only by-eye checks; delegating them would leave nothing checked by anyone who isn't the
+system.
+
+**The risk this creates, stated:** the project was designed around an operator who judges output
+against reality (`15`, `16`). With decisions delegated, the checks that remain are the CHECK rows,
+the validation guide, and the operator's pre-publication read. A wrong decision by Claude now surfaces
+later than one the operator would have caught in the session.
+
+**Reverses if:** the operator takes any decision back — per entry, or wholesale. Nothing in a
+delegated decision is harder to undo than an operator one.
+
+---
+
+### D-063 · 2026-09-28 · Collected menu content is private; the repository is not · **Accepted** — by Claude under `D-062`
+
+**Decision:** menus and dish lists collected from venues' own sites are **not** committed to the public
+repository. They are handed to the operator as files, to keep in private storage of his choice (a Google Drive folder is the obvious one). Claude does not re-type them into Drive: copying 90 KB of menu text by hand is exactly the silent-corruption risk `D-059` exists for.
+The repository holds everything else: docs, schema, frames, decisions, method, and venue-level fields that
+are facts (URL, F2 state, published price, trading status, dates).
+
+**Reasoning:** `10` §5 permits facts and short descriptions and forbids republishing a menu in full or
+raw artefacts; a public repository is publication. Venue-level facts are what the newsletter itself
+publishes, so they carry no new exposure.
+
+**Reverses if:** the repository is made private, or the legal hour `10` recommends clears it.
+
+---
+
+### D-064 · 2026-09-28 · The Phase 1 predictions are written by Claude, and say so · **Accepted** — operator request
+
+**Decision:** the five month-one predictions (`D-018`) are authored by Claude at the operator's request
+("I think you are more clever on predicting on this than me") and are recorded with `author = Claude`.
+
+**What this costs, stated plainly.** `D-018` designed them as the operator's intuition-only baseline for
+Q20. A Claude-authored baseline measures Claude's priors against a system Claude also runs, so Q20 can no
+longer answer "does the system beat the operator's gut". It can still answer "does the system beat a
+reasoned prior made before the data". They are also **not data-free**: they were written after 8 menus were
+read on 2026-08-12 and 73 menu rows on 2026-09-28, and each prediction records which of that it could have
+been influenced by. `M1` was deleted on 2026-08-01 because it was Claude-originated and unendorsed; these
+differ in being explicitly requested.
+
+**Reverses if:** the operator writes his own. His go into the same ledger alongside these, and Q20
+scores the two authors separately.
 
 ---
 
@@ -1106,3 +1177,4 @@ Source additions, taxonomy versions, prompt changes, schema migrations. Anything
 | 2026-08-10 | open | Scandinavian Standard: 133 of 1,696 slugs over 90 chars, zero in the historic 1,000; items of that shape cross-published on four other domains | precision concern for any per-title item count. **Not** a registry question (`D-052`) |
 | 2026-08-10 | doc | `D-056` — Phase 1 target confirmed at **40 venues**, declared method-development rather than cohort. `11-roadmap.md` Phase 0 "list 60 candidate venues" superseded; Phase 1 line annotated | none — no data collected yet. Removes a doc that described a selection method `D-023` had already replaced |
 | 2026-09-28 | doc | Repository created and August recovery committed. `D-056` addendum and `D-057`–`D-060` (written 2026-08-12, never uploaded) restored; D-047 wording from 2026-08-01 restored; `D-061` logged | none on data. `schema.sql` was already correct; only the docs describing it were stale |
+| 2026-09-28 | doc | `D-057`, `D-059`, `D-060` accepted under `D-062`; `D-062`–`D-064` logged; `07` §2 and `menu_item.schema.json` v1.1.0 (extractor never writes `name_original`; `menu_date_stated` is free text); `16` gains Phase 1 checks; `21` §12.1 items 9–11 | Phase 1 dish rows carry `name_original` empty until transcribed. No existing data changed |

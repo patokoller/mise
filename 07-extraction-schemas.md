@@ -1,7 +1,7 @@
 # 07 — Extraction Schemas
 
 **Status:** Draft v1
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-09-28 (§2 amended for `D-057` and `D-059`)
 **Machine-readable:** `schemas/venue.schema.json`, `schemas/menu_item.schema.json`, `schemas/event.schema.json`
 
 ---
@@ -30,7 +30,7 @@ Rule 1 carries the most weight. A model handed a schema will fill it — that is
   "venue_name_as_written": "Restaurant Noma",
   "city_as_written": "København",
   "menu_type": "tasting",
-  "menu_date_stated": "2026-03-01",
+  "menu_date_stated": "Efterårsmenu 2026",
   "menu_date_confidence": 0.9,
   "currency": "DKK",
   "menu_price": 2800,
@@ -40,8 +40,11 @@ Rule 1 carries the most weight. A model handed a schema will fill it — that is
       "section_name": "Snacks",
       "items": [
         {
-          "name_original": "Blomkål og fermenteret hyldeblomst",
+          "name_as_extracted": "Blomkål og fermenteret hyldeblomst",
+          "name_original_transcription": "machine_unverified",
+          "name_original": null,
           "name_translated": "Cauliflower and fermented elderflower",
+          "description_as_extracted": null,
           "description_original": null,
           "price": null,
           "position": 1,
@@ -60,6 +63,16 @@ Rule 1 carries the most weight. A model handed a schema will fill it — that is
 - `venue_name_as_written` is deliberately raw. Resolution happens later; the extractor must not normalise names, because the raw form is evidence for the alias table.
 - `price: null` on a tasting menu item is correct and expected.
 - `fields_uncertain` gives the reviewer a fast path to what needs checking.
+- **The extractor never writes `name_original` or `description_original` (`D-059`, schema v1.1.0).** It writes
+  `name_as_extracted` and flags it `machine_unverified`. Machine extraction corrupts accents silently —
+  ÀNEC became ÅNEC on Enigma's menu in August 2026 — and nobody on the project reads Danish or Catalan
+  well enough to catch it. `name_original` is filled only by a person reading the artefact, and only rows
+  with a human transcription are eligible for the gold set. `name_as_extracted` is good enough to detect
+  that a dish changed; it is never quoted as the venue's wording.
+- **`menu_date_stated` is free text as printed (`D-057`).** A season, version or "valid until" string goes
+  here and does not set `observed_at`. Only a full date printed on the artefact does.
+- **Open for Phase 2:** `schema.sql` still declares `menu_items.name_original TEXT NOT NULL`, which cannot
+  hold a row awaiting transcription. Phase 2 adjusts the DDL (roadmap: "adjust for what Phase 1 taught you").
 
 ---
 

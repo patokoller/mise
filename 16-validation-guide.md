@@ -1,7 +1,7 @@
 # 16 — Validation Guide
 
 **Status:** Draft v1
-**Last reviewed:** 2026-07-28
+**Last reviewed:** 2026-09-28 (Phase 1 checks added)
 
 **Who this is for:** you, checking work you didn't write, in a domain you know well, using a technology you know partially.
 
@@ -47,6 +47,37 @@ For any number the system produces. If it can't tell you what the count is out o
 ## 3. Phase-by-phase checks
 
 Concrete things to do, matched to `11-roadmap.md`. None require reading code.
+
+### Phase 1 — Publish by hand
+
+Added 2026-09-28. These are the checks that would have caught what actually went wrong in August. Each
+takes a few minutes and needs a browser, not code. The collection lives in two files:
+`data/phase1/phase1-menus-<date>.csv` (public, one row per menu) and the dish file you hold privately (`D-063`).
+
+☐ **The count-the-page test.** Pick one venue marked `full`. Open its `source_url`. Count the dishes on the
+page yourself. Filter the dish file to that `menu_id` and count the rows. They must match. If the file has
+about twice as many, a tabbed page was read twice — The Ledbury did exactly this (14 extracted, 7 real).
+
+☐ **The one-name test.** Pick one Danish or Catalan venue. Take one dish name from the menu on screen and
+compare it letter by letter with `dish_text_as_extracted`. Look at ø, æ, å, à, ç and at l versus I. If
+anything differs, you have just re-found the `D-059` problem — note it; nothing to fix, because
+`dish_name_original` is empty until you transcribe it.
+
+☐ **The price test.** Pick one `price_only` venue. Open the page. Is the number in `menu_price` the number on
+the page, in the same currency? If the page shows two prices, the row must say `competing_prices = yes` and
+leave the choice to you (akmē does this).
+
+☐ **The date test, Phase 1 version.** Every row should have `observed_at_source`. If it says `retrieval`,
+`observed_at` is the day of collection — that is correct and expected for undated menus (`D-057`). If it says
+`menu_artefact`, the date must be printed on the menu itself; check it's there. A season, a version number
+or "valid until" is not a date and must sit in `menu_date_stated` instead.
+
+☐ **The closed-venue test.** Any row marked `closed_per_source` must have a URL in `trading_status_source`.
+Open it. It must actually say the place closed. Absence of a website is never enough.
+
+☐ **The denominator test, before anything is published.** Nothing from the Phase 1 forty carries a count
+or a share (`D-056`). If an issue draft contains "N of M" about these venues, it is wrong, however true the
+arithmetic.
 
 ### Phase 2 — Database and first extraction
 
