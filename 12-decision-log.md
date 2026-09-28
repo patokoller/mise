@@ -979,6 +979,34 @@ rows are re-collected rather than re-dated — `retrieved_at` is never backfille
 
 ---
 
+### D-061 · 2026-09-28 · The project lives in a public GitHub repository, and GitHub is the master copy · **Accepted** (public: operator decision) / **Proposed** (master copy: awaiting operator)
+
+**Decision:** everything built or written for MISE is committed to `github.com/patokoller/mise`. The
+repository is **public** — the operator's decision, "for now". Proposed alongside it: GitHub is the
+**master copy**, and Project knowledge is a mirror refreshed at the end of each session. Every
+session ends with a commit.
+
+**Alternatives:** Project knowledge as the master with GitHub as a backup; a private repository.
+
+**Reasoning:** on 2026-09-28 Project knowledge was found seven weeks behind the work — one session's
+outputs, both Copenhagen frame files and one edit had never been uploaded, and nothing signalled the
+gap. Two copies with no declared master drift without anyone noticing; a commit that didn't happen is
+visible in a way a missed upload is not.
+
+**What this does not do.** A commit date is set by the computer that makes it and can be anything.
+Git history is a record of the *documents*; it is never evidence for `observed_at`, and it cannot
+prove a prediction was written before the data.
+
+**Carried with it, public-specific:** raw menu content and machine-extracted dish text stay out of
+the repository (`10` §5). Guide-derived frame lists are in it; see BUILD-STATUS known issues.
+
+**Reverses if:** (public) the specialist legal review `10` recommends before launch advises against
+publishing guide-derived lists or collected data, or anything in the repo draws a publisher
+complaint; (master) the operator finds editing through the Project easier and accepts GitHub as a
+backup only — in which case the end-of-session sync still runs, in the other direction.
+
+---
+
 ## Template for new entries
 
 ```
@@ -1077,3 +1105,4 @@ Source additions, taxonomy versions, prompt changes, schema migrations. Anything
 | 2026-08-10 | source | MigogKbh sitemap index real (113 children) but newest entry 2026-05-19 as of 2026-08-10 — misses ~10 weeks of the window. Cause not investigated | reach **not** demonstrated; section index and search still untested |
 | 2026-08-10 | open | Scandinavian Standard: 133 of 1,696 slugs over 90 chars, zero in the historic 1,000; items of that shape cross-published on four other domains | precision concern for any per-title item count. **Not** a registry question (`D-052`) |
 | 2026-08-10 | doc | `D-056` — Phase 1 target confirmed at **40 venues**, declared method-development rather than cohort. `11-roadmap.md` Phase 0 "list 60 candidate venues" superseded; Phase 1 line annotated | none — no data collected yet. Removes a doc that described a selection method `D-023` had already replaced |
+| 2026-09-28 | doc | Repository created and August recovery committed. `D-056` addendum and `D-057`–`D-060` (written 2026-08-12, never uploaded) restored; D-047 wording from 2026-08-01 restored; `D-061` logged | none on data. `schema.sql` was already correct; only the docs describing it were stale |

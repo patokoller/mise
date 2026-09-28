@@ -1,6 +1,6 @@
 # BUILD-STATUS
 
-**Last updated:** 2026-08-12 (Phase 1 — collection started, partial)
+**Last updated:** 2026-09-28 (GitHub connected; August files recovered. No Phase 1 progress since 2026-08-12)
 **Current phase:** Phase 1 — in progress; Phase 0 half-finished, not blocking
 
 > Update this at the end of every working session. Two minutes. It's what lets you restart cold after three weeks away, and it's the first thing Claude should read at the start of a session.
@@ -8,6 +8,8 @@
 ---
 
 ## Where things stand
+
+> **2026-09-28 — read this first.** No work happened between 2026-08-12 and 2026-09-28. Issue #1 has **not** been published (it was due week 3, 11–17 August). Everything below from 2026-08-12 is still the live state. The project now lives in GitHub — `github.com/patokoller/mise`, **public** (`D-061`) — and the August files that never reached Project knowledge were recovered into it (`recovery/2026-08/README.md`).
 
 **Working:** the twenty questions exist (`20-twenty-questions.md`). The venue inclusion rule exists (`21-venue-inclusion-criteria.md`) — mechanical, frozen at frame date 2026-07-28, cohort seed `20260728` declared before enumeration.
 
@@ -192,7 +194,7 @@ Record *where* things live, never the secrets themselves.
 
 | Service | Account | Where the key lives |
 |---|---|---|
-| — | — | — |
+| GitHub | `patokoller/mise` (public) | Claude pushes via the Claude GitHub App; no key stored anywhere in the repo |
 
 ---
 
@@ -200,6 +202,9 @@ Record *where* things live, never the secrets themselves.
 
 | Issue | Impact | Since | Fix planned |
 |---|---|---|---|
+| **Project knowledge silently fell behind the work** | The 2026-08-12 session's four outputs, the A1 and A2 frame files, and one 2026-08-01 edit (the schema row, which then contradicted `schema.sql`) never reached Project knowledge. Found 2026-09-28, seven weeks later | 2026-09-28 | Recovered from transcripts into GitHub (`recovery/2026-08/`). The operator's own `list_and_menus.xlsx` (39 rows, URLs) is **not recoverable**. Guard: every session ends with a commit, and `D-061` makes one copy the master |
+| **Repo documents are transcribed copies, not file copies** | The Project tool returns text, so the 2026-09-28 import was re-typed by Claude. No byte-level proof it matches. Same error class as the `ø` matcher and case-normalisation bugs | 2026-09-28 | Operator spot-check: open two documents on GitHub and compare a Danish-character passage against the Project copy |
+| **Public repo holds guide-derived lists** | `data/` carries full MICHELIN and White Guide Copenhagen listings (names, tiers, addresses). `10` §3 permits collecting facts and forbids reproducing descriptive prose; it says nothing about publishing a whole enumerated list. No guide prose was found in the files | 2026-09-28 | Operator decision, made: public for now (`D-061`). The specialist hour `10` recommends before launch should cover this |
 | "Copenhagen menus are mostly English" is unverified | Load-bearing for by-eye validation of a third of the corpus | 2026-07-28 | Q7 measures it in Phase 1. Record the answer; caveat Copenhagen menu claims if the share is low |
 | Copenhagen financial/event data not operator-verifiable | Q11, Q13, Q14, Q17 rest on source links rather than a by-eye check. Weight London for money claims | 2026-07-28 | Accepted limitation (`D-022`), not a bug to fix |
 | No place to log manually-read sources | Q19 needs "N of M documents read"; `documents` requires a stored artifact, which paywalled articles won't have | 2026-07-28 | **Phase 2**, once Phase 1 shows what's actually read. Deliberately not fixed now |
@@ -296,3 +301,4 @@ Keep this short — one line each. It's a trail, not a diary.
 | 2026-08-10 | Phase 1 target confirmed at **40 venues** and declared method-development, not cohort (`D-056`). `11-roadmap.md` Phase 0 and Phase 1 venue lines corrected — they described the hand-selection method `D-023` replaced. Phase 1 unblocked; issue #1 due week 3 |
 | 2026-08-12 | **Phase 1 collection started — 8 of 30 URLs fetched, stopped deliberately.** 6 `full` / 2 `price_only`, 110 dish rows, 7 of 8 pages English-only (denominator: 8 fetched, of 30 URLs, of 39 rows). Enigma trilingual PDF showed **machine extraction corrupting original-language text** (ÀNEC→ÅNEC, CIRERA→CIIRERA, El→EI) — `D-059` proposed, original-language names must be human-transcribed. akmē's 1500/1300 DKK conflict confirmed live. The Ledbury duplicated every block in extraction (14 vs true 7). Prodigi's supplied URL is a translation path. `D-056` confirmed by operator; `D-057`–`D-060` logged. One Claude claim withdrawn: batch timestamps do **not** disqualify rows from the gold set |
 | 2026-08-12 | Phase 1 capture template built (Menus / Dishes / Legend, dropdowns, no formulas). Copenhagen twenty selected from the frame file by documented non-random stratified fill; London and Barcelona tens assembled by web search against registered guides and are **not enumerated** (`D-058`) |
+| 2026-09-28 | **GitHub connected — `patokoller/mise`, public. No Phase 1 progress since 2026-08-12; issue #1 not published.** Project knowledge (31 docs, 3 spreadsheets) imported unchanged as commit 1. August recovery as commit 2: found that 2026-08-12's outputs, both Copenhagen frame files and one 2026-08-01 edit never reached the Project. Recovered from transcripts; rebuilt A1 and A2 frames cross-checked against the union file with 0 differences (68 of 68, 109 of 109). `D-057`–`D-060` restored to the log. Operator's 39-row upload unrecoverable. Dish lines held out of the public repo. `D-061` logged |
