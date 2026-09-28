@@ -1,6 +1,6 @@
 # 22 — Deep-dive calendar
 
-**Status:** v1, set 2026-09-28 (`D-066`)
+**Status:** v2, 2026-09-28 (`D-066`, re-ordered for ingredient trends under `D-068`)
 **Last reviewed:** 2026-09-28
 
 Issue #1 of The Next Table names five trends, each with a prediction in `predictions/phase1-ledger.md`.
@@ -10,11 +10,14 @@ done and checked; if the work slips, the issue slips — it is never written ahe
 
 | Month | Deep dive | Prediction | Needs first | Evidence with a real denominator |
 |---|---|---|---|---|
-| Nov 2026 | The guides carry their dead | P5 | **F4 pass** over Copenhagen's 132: trading status at 2026-07-28 for every venue, each with a dated source (`D-041` dating caveat applies) | Closed-at-frame-date count, of 132, by route (A1-only / both / A2-only) |
-| Dec 2026 | At the top you buy a price, not a menu | P2 | **F2 pass** over the 132: `full` / `price_only` / `none` per venue, with price where published (`D-067`) | Publication mode by guide tier, of 132 (and of the starred subset) |
-| Jan 2027 | Menus turn over inside a season | P3 | **Re-collection** of the 39 Phase 1 venues, 15–31 Dec 2026, same spec as 2026-09-28 | Rotation is P3's own test on the named venues; frame-wide rotation needs a second F2 pass and waits for spring |
-| Feb 2027 | Ambitious Copenhagen writes in English | P4 | Menu language per venue, recorded during the Dec F2 pass | Languages published, of the 132 that publish anything |
-| Apr 2027 | Eating out keeps getting dearer | P1 | **Re-collection** after 2027-03-31; ONS / Danmarks Statistik / INE March figures | Official series (`data/external/`) plus P1's own test |
+| Nov 2026 | Smoke in, truffle out | P7 | F2 pass over Copenhagen's 132 (menus now), plus Internet Archive captures of the same menus from autumn 2025 (`D-068`) | Year-apart ingredient presence across the 132, of those with menus in both years |
+| Dec 2026 | The forecasters are describing last year's menus | P6 | Archive captures from autumn 2023 and 2024 for the same restaurants | First year each forecast ingredient appears, across the 132 |
+| Jan 2027 | Heat moves onto shellfish | P8 | Re-collection of the Phase 1 venues, 15–31 Dec 2026; Barcelona read closely | Panel counts (P3 settles here too) |
+| Feb 2027 | At the top you buy a price, not a menu | P2 | F2 states for all 132, from the November pass | Publication mode by guide tier, of 132 |
+| Apr 2027 | Eating out keeps getting dearer | P1 | Re-collection after 2027-03-31; ONS / Danmarks Statistik / INE March figures | Official series plus P1's own test |
+
+P4 (menu language) and P5 (closed restaurants on the guide list) are method predictions: they are resolved in a
+weekly issue when their data exists (the F2 and F4 passes), not given a deep dive.
 
 ## Rules for every deep dive
 

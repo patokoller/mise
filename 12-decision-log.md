@@ -1142,6 +1142,34 @@ will be gathered two to four months after frame date, so more verdicts are infer
 
 ---
 
+### D-068 · 2026-09-28 · A year-apart panel, archived menus, and watch-list charts · **Accepted** — by Claude under `D-062`, at the operator's request for quantitative ingredient evidence
+
+**Decision:** three things, each with a guardrail.
+1. **Internet Archive captures are a dated source.** A Wayback capture's own timestamp is its `observed_at`;
+   the archive URL is its source URL; `retrieved_at` is when we fetched it. Nothing is adjusted. A capture outside
+   the stated window is not used.
+2. **A fixed, named panel may be counted.** The 17 kitchens with readable menus in both 2025 (archive) and 2026 are a
+   closed list. Counts are published as "N of the same 17 kitchens", always with the panel named as chosen-by-us,
+   never as a share of a city and never as a percentage. This narrows `D-056` rather than reversing it: nothing
+   is claimed about any restaurant outside the list.
+3. **Watch-list charts are allowed below the `08` §3 thresholds**, which `19` §6 otherwise forbids, only if the
+   chart itself says "below our signal threshold", shows dots not lines, carries n, and makes no projection.
+
+**Why:** the operator asked for ingredient trends backed quantitatively. One visit cannot show a rise, and
+comparing August with September would measure the season. Archived copies from the same season a year earlier
+are the only way to see change now; the panel is small, so the guardrails carry the honesty the thresholds would
+otherwise carry.
+
+**Found while doing it, and fixed before publication:** the first tagging pass counted "oyster mushroom" as oyster
+and missed chilli pastes (kosho), which made heat on shellfish look like it rose from 0 to 4 kitchens; the true
+figure is 4 to 7. The Danish word for truffle was also missed at first. Every headline count was then checked by
+reading the matched lines.
+
+**Reverses if:** the Copenhagen frame's own year-apart comparison (the November deep dive) contradicts the panel on
+truffle or smoke — then panel charts stop and only frame counts are charted.
+
+---
+
 ## Template for new entries
 
 ```
@@ -1244,3 +1272,4 @@ Source additions, taxonomy versions, prompt changes, schema migrations. Anything
 | 2026-09-28 | doc | `D-057`, `D-059`, `D-060` accepted under `D-062`; `D-062`–`D-064` logged; `07` §2 and `menu_item.schema.json` v1.1.0 (extractor never writes `name_original`; `menu_date_stated` is free text); `16` gains Phase 1 checks; `21` §12.1 items 9–11 | Phase 1 dish rows carry `name_original` empty until transcribed. No existing data changed |
 | 2026-09-28 | doc | `D-065` — issues are trend-led, cities are evidence; `09` §3 gains the framing rule | none on data |
 | 2026-09-28 | doc | `D-066` launch-issue format, evidence tiers and fixed city colours; `D-067` F2/F4 on Route A before Route B; new `22-deep-dive-calendar.md`; `19` §3 colours filled in | none on data yet; F2/F4 pass scheduled Oct–Nov 2026 |
+| 2026-09-28 | doc | `D-068` archive captures as a dated source, a named 17-kitchen panel, watch-list charts; P6–P8 added to the ledger; issue #1 charts 2–3 replaced with ingredient charts; `22` calendar re-ordered | new private data: 2025 archived menus for 26 venues. No existing rows changed |

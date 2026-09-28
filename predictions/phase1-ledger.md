@@ -87,3 +87,33 @@ Brasserie Barner, whose own site says it has closed, with no date. Both are A2-o
 - **H2-a's six-month lag threshold** in `data/predictionledger.xlsx` is still a Claude placeholder.
   It is a pre-frame hypothesis, so it is **not** replaced by Claude under delegation: replacing it now,
   with data in hand, would falsify the record it exists to keep. It stays flagged as a placeholder.
+
+---
+
+## Added 2026-09-28, later the same day — ingredient predictions (P6–P8)
+
+**Author:** Claude, at the operator's request (`D-064`). **Evidence base:** a panel of the same 17 kitchens
+read on 2026-09-28 and, via Internet Archive captures dated 2025-08-09 to 2025-11-11, a year earlier
+(`D-068`); 20 published 2026 food-trend forecasts (`data/external/food_trend_forecasts_2026.csv`). Counts from
+`analysis/ingredients/tag_ingredients.py`. **Resolution for all three:** a re-collection of the same 17 kitchens
+between 2027-09-01 and 2027-09-30 under the same spec, tagged by the same script with the vocabulary frozen as of
+this commit. A kitchen that closes or stops publishing dishes is removed and the denominator says so.
+
+### P6 · The forecasters' grocery-aisle favourites stay off serious menus
+
+**Claim:** hojicha, gochujang, beef tallow/beef fat and matcha will **each** be on the menus of no more than 2 of
+the 17 panel kitchens in September 2027. (2026-09-28: 0, 0, 0 and 0; September 2025: 0, 0, 0 and 1.)
+**Confidence:** 0.75. **Influenced by:** directly — the 2026 and 2025 panel counts.
+
+### P7 · Smoke in, truffle out
+
+**Claim:** in September 2027, truffle will be on the menus of no more than 4 of the 17 panel kitchens, **and**
+something smoked on at least 9. (September 2025: truffle 9, smoked 6. 2026-09-28: truffle 3, smoked 9.)
+**Confidence:** 0.6. **Influenced by:** directly — the year-apart panel counts.
+
+### P8 · Heat on shellfish reaches Barcelona
+
+**Claim:** by September 2027, at least one Barcelona kitchen among the Phase 1 venues will publish a menu with chilli
+heat (chilli, kosho, kimchi, 'nduja, jalapeño or similar, per the frozen vocabulary) on the same dish as shellfish.
+(2026-09-28: none of the Barcelona menus we could read; 6 kitchens in Copenhagen and 1 in London.)
+**Confidence:** 0.5. **Influenced by:** directly — the 2026 capture. It is a test of the leading-city bet (`D-065`).

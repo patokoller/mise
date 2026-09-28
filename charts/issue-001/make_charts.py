@@ -71,87 +71,88 @@ def chart_prices():
     plt.close(fig)
 
 
-# ---------------------------------------------------------------- Chart 2: the Copenhagen frame by guide
-def chart_frame():
-    ws = openpyxl.load_workbook("data/cphrouteaframeunion.xlsx", data_only=True)["cph_route_a_frame_union"]
-    hdr_row = next(r for r in range(1, 15) if "google_place_id" in [c.value for c in ws[r]])
-    hdr = [c.value for c in ws[hdr_row]]
-    rows = [dict(zip(hdr, [c.value for c in row])) for row in ws.iter_rows(min_row=hdr_row + 1)]
-    rows = [r for r in rows if isinstance(r["google_place_id"], str) and r["google_place_id"].startswith("ChIJ")]
-    by_route = Counter(r["route_provenance"] for r in rows)
-    total = len(rows)
-    assert total == 132 and sum(by_route.values()) == total, by_route
+# ---------------------------------------------------------------- shared: ingredient outputs (analysis/ingredients)
+import json
+ING = json.load(open("analysis/ingredients/out/ingredient_presence.json", encoding="utf-8"))
+FCB = json.load(open("analysis/ingredients/out/forecasters_by_term.json", encoding="utf-8"))
+TERMS = {t["term"]: t for t in ING["terms"]}
+N_PANEL = ING["denominators"]["panel_size"]
+N_PUB = FCB["publishers_counted"]
+PANEL_NOTE = (f"Panel: the same {N_PANEL} kitchens (Copenhagen {ING['denominators']['panel_by_city']['Copenhagen']}, "
+              f"Barcelona {ING['denominators']['panel_by_city']['Barcelona']}, London {ING['denominators']['panel_by_city']['London']}) "
+              "whose menus we could read both years: 2025 from Internet Archive captures dated 2025-08-09 to 2025-11-11, 2026 read on 2026-09-28. "
+              "Chosen by us, not a sample; below our signal threshold.")
+DOT25, DOT26 = "#9a9a9a", "#222222"
 
-    # Closed per source on 2026-09-28 (Phase 1 collection), matched by name to the frame.
-    menus = list(csv.DictReader(open("data/phase1/phase1-menus-2026-09-28.csv", encoding="utf-8")))
-    closed_names = {m["venue_query_name"] for m in menus if m["trading_status"] == "closed_per_source"}
-    closed = Counter(r["route_provenance"] for r in rows if r["display_name_provisional"] in closed_names)
-    assert sum(closed.values()) == len(closed_names), (closed, closed_names)
 
-    order = [("A1-only", "MICHELIN only"), ("both", "Both guides"), ("A2-only", "White Guide only")]
-    fig, ax = plt.subplots(figsize=(7.5, 4.3))
-    colour = CITY["Copenhagen"][0]
-    for i, (key, label) in enumerate(order):
-        n, k = by_route[key], closed[key]
-        ax.barh(i, n, color=colour, alpha=0.85)
-        if k:
-            ax.barh(i, k, left=n - k, color="white", edgecolor=INK, hatch="////", linewidth=0.8)
-        ax.text(n + 1, i, f"{n} of {total}" + (f"  (incl. {k} found closed)" if k else ""), va="center", fontsize=9)
-    ax.set_yticks(range(3), [l for _, l in order])
-    ax.invert_yaxis()
-    ax.set_xlim(0, total * 0.75)
-    ax.set_xlabel(f"Restaurants on our Copenhagen list (n = {total})")
-    ax.grid(axis="y", visible=False)
-    ax.grid(axis="x", color="#dddddd", linewidth=0.5)
-    fig.suptitle("Where Copenhagen's list comes from, and where the closures sit", x=0.01, ha="left",
-                 fontsize=11, fontweight="bold")
-    footnote(fig, f"List: MICHELIN Guide Nordic Countries 2026 and White Guide Denmark, snapshot for 28 July 2026, inside "
-                  f"Københavns and Frederiksberg kommuner ({total} restaurants).\nHatched: closed per the source named in the issue, found 2026-09-28 "
-                  "among the few on the list we checked by hand. Most of the list has not yet been checked for closures.\n"
-                  "Restaurants no guide lists are not on the list. The Next Table.")
-    fig.tight_layout(rect=(0, 0.19, 1, 0.92))
-    fig.savefig(OUT + "chart2-copenhagen-list-closures.png", dpi=200)
+# ---------------------------------------------------------------- Chart 2: forecasts vs kitchens
+def chart_forecasts():
+    not_ingredients = {"fermented", "dashi / broth", "pork / iberico", "caramelised / burnt", "raw / cured", "smoked"}  # techniques / generic
+    rows = [(t, len(p)) for t, p in FCB["by_term"].items() if len(p) >= 2 and t in TERMS and t not in not_ingredients]
+    rows.sort(key=lambda r: (-r[1], r[0]))
+    labels = {"chilli": "heat (chilli, kosho, kimchi…)", "fermented": "fermented (technique)", "honey": "honey (incl. hot honey)",
+              "vinegar": "vinegar (incl. fruit vinegars)", "chocolate": "chocolate (incl. Dubai)"}
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.5, 0.36 * len(rows) + 2.3), sharey=True,
+                                 gridspec_kw={"width_ratios": [1, 1.25]})
+    y = list(range(len(rows)))
+    a1.barh(y, [n for _, n in rows], color="#6b6b6b")
+    for yi, (_, n) in zip(y, rows):
+        a1.text(n + 0.15, yi, str(n), va="center", fontsize=8)
+    a1.set_yticks(y, [labels.get(t, t) for t, _ in rows], fontsize=9)
+    a1.invert_yaxis()
+    a1.set_xlim(0, max(n for _, n in rows) + 1.5)
+    a1.set_title(f"Named as a 2026 trend by … of the {N_PUB}\nforecasters we read", fontsize=9.5, loc="left")
+    a1.grid(axis="y", visible=False); a1.grid(axis="x", color="#dddddd", linewidth=0.5)
+    for yi, (t, _) in zip(y, rows):
+        p25, p26 = TERMS[t]["panel_2025"], TERMS[t]["panel_2026"]
+        a2.plot([p25, p26], [yi, yi], color="#cccccc", linewidth=1, zorder=1)
+        a2.scatter(p25, yi, s=40, facecolors="white", edgecolors=DOT25, zorder=2)
+        a2.scatter(p26, yi, s=40, color=DOT26, zorder=3)
+    a2.set_xlim(-0.5, N_PANEL + 0.5)
+    a2.set_xticks(range(0, N_PANEL + 1, 2))
+    a2.set_title(f"On the menus of … of our {N_PANEL} panel kitchens\n○ Sept 2025   ● Sept 2026", fontsize=9.5, loc="left")
+    a2.grid(axis="y", visible=False); a2.grid(axis="x", color="#dddddd", linewidth=0.5)
+    fig.suptitle("What the 2026 forecasts name, and whether serious kitchens were already serving it",
+                 x=0.01, ha="left", fontsize=11, fontweight="bold")
+    footnote(fig, f"Forecasters: {N_PUB} publishers of 2026 food-trend forecasts (Oct 2025 – Jun 2026), mostly US and UK; each counted once. "
+                  "Ingredients named by at least 2.\n" + PANEL_NOTE + " Ingredients matched in code on menu text. The Next Table.")
+    fig.tight_layout(rect=(0, 0.13, 1, 0.93))
+    fig.savefig(OUT + "chart2-forecasts-vs-kitchens.png", dpi=200)
     plt.close(fig)
+    return rows
 
 
-# ---------------------------------------------------------------- Chart 3: menu languages, Copenhagen, named
-def chart_languages():
-    menus = list(csv.DictReader(open("data/phase1/phase1-menus-2026-09-28.csv", encoding="utf-8")))
-    cph = [m for m in menus if m["city"] == "Copenhagen" and m["trading_status"] != "closed_per_source"]
-    langs = {}
-    for m in cph:
-        langs.setdefault(m["venue_query_name"], set()).update(m["languages_published"].split("+"))
-    names = sorted(langs, key=lambda v: (("da" in langs[v]) + 2 * ("en" in langs[v] and "da" not in langs[v]), v.lower()))
-    cols = [("en", "English"), ("da", "Danish"), ("it", "Italian")]
-    fig, ax = plt.subplots(figsize=(6.2, 0.32 * len(names) + 1.6))
-    colour = CITY["Copenhagen"][0]
-    for y, v in enumerate(names):
-        for x, (code, _) in enumerate(cols):
-            if code in langs[v]:
-                ax.scatter(x, y, s=70, color=colour)
-            else:
-                ax.scatter(x, y, s=70, facecolors="none", edgecolors="#bbbbbb")
-    ax.set_xticks(range(len(cols)), [c for _, c in cols])
-    ax.set_yticks(range(len(names)), names, fontsize=8.5)
+# ---------------------------------------------------------------- Chart 3: panel movers
+def chart_movers():
+    skip = {"citrus", "caramelised / burnt", "raw / cured", "dashi / broth", "sourdough / bread"}  # methods and generic words
+    mv = [(t, d["panel_2025"], d["panel_2026"]) for t, d in TERMS.items()
+          if t not in skip and abs(d["panel_2026"] - d["panel_2025"]) >= 3]
+    mv.sort(key=lambda r: (r[2] - r[1]), reverse=True)
+    fig, ax = plt.subplots(figsize=(7.5, 0.42 * len(mv) + 2.2))
+    for yi, (t, a, b) in enumerate(mv):
+        col = "#0b6e4f" if b > a else "#a23b2a"
+        ax.annotate("", xy=(b, yi), xytext=(a, yi), arrowprops=dict(arrowstyle="->", color=col, lw=1.4))
+        ax.scatter(a, yi, s=40, facecolors="white", edgecolors=DOT25, zorder=3)
+        ax.scatter(b, yi, s=40, color=col, zorder=3)
+        ax.text(max(a, b) + 0.4, yi, f"{a} → {b}", va="center", fontsize=8.5)
+    ax.set_yticks(range(len(mv)), [t for t, _, _ in mv], fontsize=9.5)
     ax.invert_yaxis()
-    ax.set_xlim(-0.6, len(cols) - 0.4)
-    ax.xaxis.tick_top()
-    ax.grid(False)
-    for s in ("left", "bottom"):
-        ax.spines[s].set_visible(False)
-    fig.suptitle("Which languages Copenhagen restaurants publish their menu in", x=0.01, ha="left",
-                 fontsize=11, fontweight="bold")
-    footnote(fig, f"{len(names)} trading Copenhagen restaurants we chose by hand — not a sample; no shares should be read "
-                  "from this.\nFilled dot = the venue's own site publishes its menu or price page in that language. Checked 2026-09-28. The Next Table.")
-    fig.tight_layout(rect=(0, 0.07, 1, 0.94))
-    fig.savefig(OUT + "chart3-copenhagen-menu-languages.png", dpi=200)
+    ax.set_xlim(-0.5, N_PANEL + 0.5)
+    ax.set_xticks(range(0, N_PANEL + 1, 2))
+    ax.set_xlabel(f"Panel kitchens with it on the menu, of {N_PANEL}  (○ Sept 2025  ● Sept 2026)")
+    ax.grid(axis="y", visible=False); ax.grid(axis="x", color="#dddddd", linewidth=0.5)
+    fig.suptitle("Same kitchens, a year apart: the ingredients that moved most",
+                 x=0.01, ha="left", fontsize=11, fontweight="bold")
+    footnote(fig, PANEL_NOTE + f" Shown: moves of 3 or more kitchens. Menus were shorter this year "
+                  f"({ING['denominators']['panel_dish_lines']['2025']} dish lines in 2025, {ING['denominators']['panel_dish_lines']['2026']} in 2026), "
+                  "which favours falls. Watch list, not a trend. The Next Table.")
+    fig.tight_layout(rect=(0, 0.16, 1, 0.93))
+    fig.savefig(OUT + "chart3-panel-movers.png", dpi=200)
     plt.close(fig)
-    return names, langs
+    return mv
 
 
 if __name__ == "__main__":
     chart_prices()
-    chart_frame()
-    names, langs = chart_languages()
-    print("chart 3 venues:", {v: "+".join(sorted(langs[v])) for v in names})
-    print("done")
+    print("chart 2 rows:", chart_forecasts())
+    print("chart 3 rows:", chart_movers())

@@ -1,0 +1,1072 @@
+{
+ "denominators": {
+  "venues_with_dish_text_2026": 25,
+  "venues_with_dish_text_2026_by_city": {
+   "Copenhagen": 11,
+   "Barcelona": 5,
+   "London": 9
+  },
+  "panel_size": 17,
+  "panel_by_city": {
+   "Copenhagen": 8,
+   "Barcelona": 3,
+   "London": 6
+  },
+  "panel_venues": [
+   "Aamanns 1921",
+   "Abigail & Co",
+   "Admiralgade 26",
+   "Alf",
+   "Ambra",
+   "Bistro Boheme",
+   "Bonheur by Matt Abé",
+   "Casa Fofò",
+   "Da Terra",
+   "Lasarte",
+   "Legado",
+   "Masseria",
+   "Mont Bar",
+   "Paula",
+   "Prodigi",
+   "Row on 5",
+   "The Ledbury"
+  ],
+  "panel_dish_lines": {
+   "2025": 587,
+   "2026": 543
+  }
+ },
+ "terms": [
+  {
+   "term": "miso",
+   "venues_2026_all": 9,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 7,
+   "panel_2026": 6,
+   "panel_new_2026": [
+    "Row on 5"
+   ],
+   "panel_dropped_2026": [
+    "Abigail & Co",
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "kimchi",
+   "venues_2026_all": 4,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 3,
+   "panel_2026": 3,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "matcha",
+   "venues_2026_all": 1,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 1,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": [
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "hojicha",
+   "venues_2026_all": 0,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 0,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "pistachio",
+   "venues_2026_all": 8,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 7,
+   "panel_2026": 5,
+   "panel_new_2026": [
+    "Bistro Boheme"
+   ],
+   "panel_dropped_2026": [
+    "Abigail & Co",
+    "Masseria",
+    "Paula"
+   ]
+  },
+  {
+   "term": "yuzu",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 4,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Admiralgade 26"
+   ],
+   "panel_dropped_2026": [
+    "Bonheur by Matt Abé",
+    "Paula"
+   ]
+  },
+  {
+   "term": "seaweed",
+   "venues_2026_all": 8,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 8,
+   "panel_2026": 6,
+   "panel_new_2026": [
+    "Bonheur by Matt Abé",
+    "Lasarte"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921",
+    "Abigail & Co",
+    "Admiralgade 26",
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "koji",
+   "venues_2026_all": 2,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 1,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": [
+    "Abigail & Co"
+   ]
+  },
+  {
+   "term": "beef fat",
+   "venues_2026_all": 0,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 0,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "cardamom",
+   "venues_2026_all": 4,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 2,
+   "panel_2026": 2,
+   "panel_new_2026": [
+    "Lasarte"
+   ],
+   "panel_dropped_2026": [
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "honey",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 4,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Abigail & Co",
+    "Alf"
+   ],
+   "panel_dropped_2026": [
+    "Bonheur by Matt Abé",
+    "Masseria"
+   ]
+  },
+  {
+   "term": "vinegar",
+   "venues_2026_all": 3,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 4,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Mont Bar"
+   ],
+   "panel_dropped_2026": [
+    "Masseria",
+    "Paula"
+   ]
+  },
+  {
+   "term": "gochujang",
+   "venues_2026_all": 0,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 0,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "blackcurrant",
+   "venues_2026_all": 2,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 2,
+   "panel_2026": 2,
+   "panel_new_2026": [
+    "Alf",
+    "Paula"
+   ],
+   "panel_dropped_2026": [
+    "Masseria",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "fermented",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 4,
+   "panel_2026": 5,
+   "panel_new_2026": [
+    "Aamanns 1921",
+    "Bistro Boheme"
+   ],
+   "panel_dropped_2026": [
+    "Lasarte"
+   ]
+  },
+  {
+   "term": "garum",
+   "venues_2026_all": 0,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 0,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "buckwheat",
+   "venues_2026_all": 2,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 1,
+   "panel_2026": 1,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "verjus",
+   "venues_2026_all": 2,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 0,
+   "panel_2026": 1,
+   "panel_new_2026": [
+    "Bonheur by Matt Abé"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "sea buckthorn",
+   "venues_2026_all": 2,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 1,
+   "panel_2026": 2,
+   "panel_new_2026": [
+    "Abigail & Co"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "brown butter",
+   "venues_2026_all": 4,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 8,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Alf"
+   ],
+   "panel_dropped_2026": [
+    "Masseria",
+    "Mont Bar",
+    "Paula",
+    "Prodigi",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "cultured cream",
+   "venues_2026_all": 8,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 6,
+   "panel_new_2026": [
+    "Abigail & Co",
+    "Alf"
+   ],
+   "panel_dropped_2026": [
+    "Paula"
+   ]
+  },
+  {
+   "term": "pine / spruce",
+   "venues_2026_all": 8,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 6,
+   "panel_new_2026": [
+    "Abigail & Co",
+    "Ambra"
+   ],
+   "panel_dropped_2026": [
+    "Bonheur by Matt Abé"
+   ]
+  },
+  {
+   "term": "fish sauce",
+   "venues_2026_all": 0,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 0,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "caviar",
+   "venues_2026_all": 11,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 8,
+   "panel_2026": 7,
+   "panel_new_2026": [],
+   "panel_dropped_2026": [
+    "Paula"
+   ]
+  },
+  {
+   "term": "truffle",
+   "venues_2026_all": 6,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 9,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Row on 5"
+   ],
+   "panel_dropped_2026": [
+    "Abigail & Co",
+    "Da Terra",
+    "Lasarte",
+    "Masseria",
+    "Mont Bar",
+    "Prodigi",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "scallop",
+   "venues_2026_all": 12,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 9,
+   "panel_2026": 9,
+   "panel_new_2026": [
+    "Abigail & Co",
+    "Masseria"
+   ],
+   "panel_dropped_2026": [
+    "Admiralgade 26",
+    "Paula"
+   ]
+  },
+  {
+   "term": "langoustine",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 1,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Da Terra",
+    "Lasarte",
+    "Row on 5"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "oyster",
+   "venues_2026_all": 14,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 10,
+   "panel_2026": 10,
+   "panel_new_2026": [
+    "Bonheur by Matt Abé",
+    "Paula",
+    "Row on 5"
+   ],
+   "panel_dropped_2026": [
+    "Masseria",
+    "Prodigi",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "crab",
+   "venues_2026_all": 4,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Da Terra"
+   ],
+   "panel_dropped_2026": [
+    "Casa Fofò",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "lobster",
+   "venues_2026_all": 6,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 7,
+   "panel_2026": 5,
+   "panel_new_2026": [
+    "Masseria",
+    "The Ledbury"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921",
+    "Abigail & Co",
+    "Ambra",
+    "Bonheur by Matt Abé"
+   ]
+  },
+  {
+   "term": "sea urchin",
+   "venues_2026_all": 1,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 0,
+   "panel_2026": 1,
+   "panel_new_2026": [
+    "The Ledbury"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "tuna",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 3,
+   "panel_2026": 3,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "mackerel",
+   "venues_2026_all": 3,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 5,
+   "panel_2026": 2,
+   "panel_new_2026": [
+    "Paula"
+   ],
+   "panel_dropped_2026": [
+    "Abigail & Co",
+    "Alf",
+    "Legado",
+    "Masseria"
+   ]
+  },
+  {
+   "term": "cod",
+   "venues_2026_all": 3,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 1,
+   "panel_2026": 1,
+   "panel_new_2026": [],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "anchovy",
+   "venues_2026_all": 7,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 4,
+   "panel_new_2026": [],
+   "panel_dropped_2026": [
+    "Ambra"
+   ]
+  },
+  {
+   "term": "caviar / roe",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 3,
+   "panel_2026": 2,
+   "panel_new_2026": [
+    "Da Terra"
+   ],
+   "panel_dropped_2026": [
+    "Admiralgade 26",
+    "Paula"
+   ]
+  },
+  {
+   "term": "duck",
+   "venues_2026_all": 7,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Alf"
+   ],
+   "panel_dropped_2026": [
+    "Masseria",
+    "Paula",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "lamb",
+   "venues_2026_all": 4,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 3,
+   "panel_2026": 1,
+   "panel_new_2026": [],
+   "panel_dropped_2026": [
+    "Da Terra",
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "venison / game",
+   "venues_2026_all": 7,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 8,
+   "panel_2026": 5,
+   "panel_new_2026": [
+    "Paula"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921",
+    "Masseria",
+    "Prodigi",
+    "Row on 5"
+   ]
+  },
+  {
+   "term": "wagyu / aged beef",
+   "venues_2026_all": 4,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 3,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Lasarte"
+   ],
+   "panel_dropped_2026": [
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "pork / iberico",
+   "venues_2026_all": 9,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 5,
+   "panel_new_2026": [
+    "Da Terra"
+   ],
+   "panel_dropped_2026": [
+    "Lasarte"
+   ]
+  },
+  {
+   "term": "pumpkin / squash",
+   "venues_2026_all": 10,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 4,
+   "panel_2026": 7,
+   "panel_new_2026": [
+    "Bistro Boheme",
+    "Casa Fofò",
+    "Paula"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "mushroom",
+   "venues_2026_all": 16,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 13,
+   "panel_2026": 11,
+   "panel_new_2026": [
+    "Alf",
+    "Bonheur by Matt Abé"
+   ],
+   "panel_dropped_2026": [
+    "Ambra",
+    "Mont Bar",
+    "Paula",
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "celeriac",
+   "venues_2026_all": 6,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 4,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Prodigi"
+   ],
+   "panel_dropped_2026": [
+    "Bonheur by Matt Abé"
+   ]
+  },
+  {
+   "term": "beetroot",
+   "venues_2026_all": 11,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 7,
+   "panel_2026": 8,
+   "panel_new_2026": [
+    "Abigail & Co",
+    "Da Terra",
+    "Paula"
+   ],
+   "panel_dropped_2026": [
+    "Prodigi",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "jerusalem artichoke",
+   "venues_2026_all": 3,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 5,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Bistro Boheme"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921",
+    "Bonheur by Matt Abé",
+    "Paula"
+   ]
+  },
+  {
+   "term": "artichoke",
+   "venues_2026_all": 3,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 2,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Prodigi"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "tomato",
+   "venues_2026_all": 16,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 12,
+   "panel_2026": 11,
+   "panel_new_2026": [
+    "Admiralgade 26",
+    "Da Terra"
+   ],
+   "panel_dropped_2026": [
+    "Abigail & Co",
+    "Lasarte",
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "fig",
+   "venues_2026_all": 8,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 6,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Bonheur by Matt Abé"
+   ],
+   "panel_dropped_2026": [
+    "Mont Bar",
+    "Prodigi",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "plum",
+   "venues_2026_all": 3,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 4,
+   "panel_2026": 2,
+   "panel_new_2026": [],
+   "panel_dropped_2026": [
+    "Bistro Boheme",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "quince",
+   "venues_2026_all": 0,
+   "in_copenhagen_2026": 0,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 0,
+   "panel_2025": 1,
+   "panel_2026": 0,
+   "panel_new_2026": [],
+   "panel_dropped_2026": [
+    "Abigail & Co"
+   ]
+  },
+  {
+   "term": "apple",
+   "venues_2026_all": 7,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 7,
+   "panel_2026": 5,
+   "panel_new_2026": [
+    "Paula"
+   ],
+   "panel_dropped_2026": [
+    "Bistro Boheme",
+    "Bonheur by Matt Abé",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "pear",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 4,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Lasarte"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921",
+    "Da Terra"
+   ]
+  },
+  {
+   "term": "rhubarb",
+   "venues_2026_all": 3,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 1,
+   "panel_2026": 2,
+   "panel_new_2026": [
+    "Bistro Boheme",
+    "Legado"
+   ],
+   "panel_dropped_2026": [
+    "Ambra"
+   ]
+  },
+  {
+   "term": "elderflower / elderberry",
+   "venues_2026_all": 2,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 0,
+   "panel_2025": 1,
+   "panel_2026": 2,
+   "panel_new_2026": [
+    "Prodigi"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "hazelnut",
+   "venues_2026_all": 7,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 8,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Abigail & Co"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921",
+    "Bistro Boheme",
+    "Bonheur by Matt Abé",
+    "Masseria",
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "walnut",
+   "venues_2026_all": 6,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 3,
+   "panel_2026": 3,
+   "panel_new_2026": [
+    "Alf",
+    "Bonheur by Matt Abé"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921",
+    "Ambra"
+   ]
+  },
+  {
+   "term": "chocolate",
+   "venues_2026_all": 12,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 12,
+   "panel_2026": 8,
+   "panel_new_2026": [
+    "Abigail & Co"
+   ],
+   "panel_dropped_2026": [
+    "Admiralgade 26",
+    "Bistro Boheme",
+    "Paula",
+    "Prodigi",
+    "The Ledbury"
+   ]
+  },
+  {
+   "term": "citrus",
+   "venues_2026_all": 17,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 15,
+   "panel_2026": 13,
+   "panel_new_2026": [
+    "Mont Bar"
+   ],
+   "panel_dropped_2026": [
+    "Legado",
+    "Masseria",
+    "Paula"
+   ]
+  },
+  {
+   "term": "chilli",
+   "venues_2026_all": 15,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 10,
+   "panel_2026": 11,
+   "panel_new_2026": [
+    "Paula",
+    "The Ledbury"
+   ],
+   "panel_dropped_2026": [
+    "Abigail & Co"
+   ]
+  },
+  {
+   "term": "rye",
+   "venues_2026_all": 5,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 3,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Abigail & Co"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "sourdough / bread",
+   "venues_2026_all": 6,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 4,
+   "panel_new_2026": [
+    "Mont Bar"
+   ],
+   "panel_dropped_2026": [
+    "Abigail & Co",
+    "Da Terra"
+   ]
+  },
+  {
+   "term": "caramelised / burnt",
+   "venues_2026_all": 16,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 9,
+   "panel_2026": 10,
+   "panel_new_2026": [
+    "Admiralgade 26",
+    "Masseria"
+   ],
+   "panel_dropped_2026": [
+    "Aamanns 1921"
+   ]
+  },
+  {
+   "term": "smoked",
+   "venues_2026_all": 13,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 6,
+   "panel_2026": 9,
+   "panel_new_2026": [
+    "Abigail & Co",
+    "Bistro Boheme",
+    "Mont Bar"
+   ],
+   "panel_dropped_2026": []
+  },
+  {
+   "term": "raw / cured",
+   "venues_2026_all": 11,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 6,
+   "panel_2026": 7,
+   "panel_new_2026": [
+    "Bistro Boheme",
+    "Prodigi"
+   ],
+   "panel_dropped_2026": [
+    "Paula"
+   ]
+  },
+  {
+   "term": "dashi / broth",
+   "venues_2026_all": 7,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 1,
+   "in_london_2026": 1,
+   "panel_2025": 5,
+   "panel_2026": 6,
+   "panel_new_2026": [
+    "Bistro Boheme",
+    "Da Terra"
+   ],
+   "panel_dropped_2026": [
+    "Prodigi"
+   ]
+  },
+  {
+   "term": "heat on shellfish",
+   "venues_2026_all": 7,
+   "in_copenhagen_2026": 1,
+   "in_barcelona_2026": 0,
+   "in_london_2026": 1,
+   "panel_2025": 4,
+   "panel_2026": 7,
+   "panel_new_2026": [
+    "Aamanns 1921",
+    "Bistro Boheme",
+    "Masseria",
+    "Paula",
+    "The Ledbury"
+   ],
+   "panel_dropped_2026": [
+    "Ambra",
+    "Bonheur by Matt Abé"
+   ]
+  }
+ ]
+}
